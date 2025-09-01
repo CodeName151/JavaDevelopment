@@ -3,29 +3,30 @@ package Chap5;
 public class SimpleStartup {
     int[] locationCells;
     int numOfHits;
-
+    
 
     String checkYourself(int userGuess){
-    
-        for(int i = 0 ; i<locationCells.length;i++){
+        String result = "miss";
+        for(int cell : locationCells){
             
             
-            if(userGuess == locationCells[i]){
+            if(userGuess == cell){
                 numOfHits = numOfHits+1;
-                System.out.println(numOfHits);
-                if(numOfHits == 3){
-                return "Kill";
-                }
-                else{
-               
-                    return "hit";
-
-                }
-            }
                 
-            
+                result = "hit";
+                 
+                break;
             }
-               return "miss";
+        }
+                if(numOfHits == locationCells.length){
+                    result = "kill";
+                }
+            
+           
+            System.out.println(result);
+            System.out.println("Num of Hits : " + numOfHits);
+               return result;
+               
             }
            
      
